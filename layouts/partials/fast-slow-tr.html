@@ -1,9 +1,11 @@
 {{- partial "computed_track_fields.html" . -}}
 {{- $speed_rating := .Scratch.Get "speed_rating" -}}
+{{- $turn_distance := .Scratch.Get "turn_distance" -}}
 {{- $geometry_type := .Scratch.Get "geometry_type" -}}
 <tr>
   <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
   <td>{{ lang.NumFmt 2 $speed_rating }}</td>
+  <td>{{ lang.NumFmt 2 (div 360 $turn_distance) }}</td>
   <td>{{ .Params.elevation_meters }}</td>
   <td>{{ $geometry_type }}</td>
 </tr>
